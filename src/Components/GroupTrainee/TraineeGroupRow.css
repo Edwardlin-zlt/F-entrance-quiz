@@ -1,0 +1,32 @@
+.trainee-group-row {
+  width: 100%;
+  border: #929baa 1px solid;
+  margin-bottom: 30px;
+}
+
+.group-name {
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: white;
+  background: #929baa;
+}
+
+.trainee-names {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  height: 50px;
+  padding: 0 50px;
+}
+
+.trainee-name {
+  width: 80px;
+  border-radius: 5px;
+  background: #eeeeee;
+  padding: 5px 0;
+  text-align: center;
+  margin: 0 20px;
+}

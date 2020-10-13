@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import TraineeGroupRow from '../../Components/GroupTrainee/TraineeGroupRow';
+import './GroupList.css';
 
 class GroupList extends Component {
   constructor(props) {
@@ -15,7 +16,7 @@ class GroupList extends Component {
     return (
       <div className="groups">
         <section className="groups-header">
-          <h3>分组列表</h3>
+          <h3 className="groups-header-title">分组列表</h3>
           <button type="button">分组学员</button>
         </section>
         <section className="groups-main">
