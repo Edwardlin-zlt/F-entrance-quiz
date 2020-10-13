@@ -3,7 +3,8 @@ import baseURL from './base';
 
 const TraineeApi = {
   getAll: async () => {
-    return axios.get(`${baseURL}/trainees`);
+    const result = await axios.get(`${baseURL}/trainees`);
+    return result.trainees;
   },
 };
 
