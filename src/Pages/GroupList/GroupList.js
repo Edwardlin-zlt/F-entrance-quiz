@@ -14,12 +14,23 @@ class GroupList extends Component {
 
   async componentDidMount() {
     await this.getAllTrainees();
+    this.groupTrainees();
   }
 
   getAllTrainees = async () => {
     const trainees = await TraineeApi.getAll();
     const traineeNames = trainees.map((traineeObj) => traineeObj.name);
     this.setState({ trainees: traineeNames });
+  };
+
+  groupTrainees = () => {
+    const { trainees, groups } = this.state;
+    if (trainees) {
+      trainees.forEach((trainee, index) => {
+        groups[index % 6].push(trainee);
+      });
+    }
+    this.setState(groups);
   };
 
   render() {
