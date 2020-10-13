@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import 'babel-polyfill';
 import './App.scss';
 import './App.css';
 import GroupList from '../Pages/GroupList/GroupList';
