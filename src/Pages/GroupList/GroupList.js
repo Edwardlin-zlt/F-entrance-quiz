@@ -1,15 +1,26 @@
 import React, { Component } from 'react';
 import TraineeGroupRow from '../../Components/GroupTrainee/TraineeGroupRow';
 import './GroupList.css';
+import TraineeApi from '../../Api/trainee';
 
 class GroupList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      trainees: ['lintao', 'hahah'],
-      groups: [['asd', 'asdf'], ['asd'], ['asd'], ['asd'], ['asd'], []],
+      trainees: [],
+      groups: [[], [], [], [], [], []],
     };
   }
+
+  async componentDidMount() {
+    await this.getAllTrainees();
+  }
+
+  getAllTrainees = async () => {
+    const trainees = await TraineeApi.getAll();
+    const traineeNames = trainees.map((traineeObj) => traineeObj.name);
+    this.setState({ trainees: traineeNames });
+  };
 
   render() {
     const { groups, trainees } = this.state;
@@ -26,11 +37,12 @@ class GroupList extends Component {
         </section>
         <section className="groups-all-trainee">
           <h3>学员列表</h3>
-          {trainees.map((traineeName, index) => (
-            <span className="trainee-name" key={index}>
-              {index + 1}.{traineeName}
-            </span>
-          ))}
+          {trainees &&
+            trainees.map((traineeName, index) => (
+              <span className="trainee-name" key={index}>
+                {index + 1}.{traineeName}
+              </span>
+            ))}
         </section>
       </div>
     );

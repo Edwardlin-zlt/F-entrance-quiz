@@ -8,11 +8,12 @@ class TraineeGroupRow extends Component {
       <div className="trainee-group-row">
         <div className="group-name">{groupIndex + 1} 组</div>
         <div className="trainee-names">
-          {groupTrainee.map((traineeName, index) => (
-            <span className="trainee-name" key={index}>
-              {index + 1}.{traineeName}
-            </span>
-          ))}
+          {groupTrainee &&
+            groupTrainee.map((traineeName, index) => (
+              <span className="trainee-name" key={index}>
+                {index + 1}.{traineeName}
+              </span>
+            ))}
         </div>
       </div>
     );
