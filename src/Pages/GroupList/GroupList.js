@@ -43,14 +43,15 @@ class GroupList extends Component {
   };
 
   groupTrainees = () => {
-    const { trainees, groups } = this.state;
+    const { trainees } = this.state;
+    const groups = [[], [], [], [], [], []];
     if (trainees) {
-      const shuffledTrainees = this.shuffle(trainees);
+      const shuffledTrainees = this.shuffle([...trainees]);
       shuffledTrainees.forEach((trainee, index) => {
         groups[index % 6].push(trainee);
       });
     }
-    this.setState(groups);
+    this.setState({ groups });
   };
 
   render() {
@@ -59,7 +60,9 @@ class GroupList extends Component {
       <div className="groups">
         <section className="groups-header">
           <h3 className="groups-header-title">分组列表</h3>
-          <button type="button">分组学员</button>
+          <button type="button" onClick={this.groupTrainees}>
+            分组学员
+          </button>
         </section>
         <section className="groups-main">
           {groups.map((groupTrainee, index) => (
