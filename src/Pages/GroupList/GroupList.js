@@ -23,10 +23,30 @@ class GroupList extends Component {
     this.setState({ trainees: traineeNames });
   };
 
+  shuffle = (array) => {
+    let currentIndex = array.length;
+    let temporaryValue;
+    let randomIndex;
+
+    while (currentIndex !== 0) {
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex -= 1;
+
+      temporaryValue = array[currentIndex];
+      // eslint-disable-next-line no-param-reassign
+      array[currentIndex] = array[randomIndex];
+      // eslint-disable-next-line no-param-reassign
+      array[randomIndex] = temporaryValue;
+    }
+
+    return array;
+  };
+
   groupTrainees = () => {
     const { trainees, groups } = this.state;
     if (trainees) {
-      trainees.forEach((trainee, index) => {
+      const shuffledTrainees = this.shuffle(trainees);
+      shuffledTrainees.forEach((trainee, index) => {
         groups[index % 6].push(trainee);
       });
     }
