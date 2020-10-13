@@ -8,3 +8,10 @@ ul,
 li {
   list-style: none;
 }
+
+.App {
+  padding: 40px 22px;
+  width: 100vw;
+  height: 100vh;
+  background: #f7f7f7;
+}
