@@ -8,9 +8,9 @@ class TraineeGroupRow extends Component {
         <div className="group-name">{groupIndex + 1}组</div>
         <div className="trainee-names">
           {groupTrainee.map((traineeName, index) => (
-            <div className="trainee-name" key={index}>
+            <span className="trainee-name" key={index}>
               {index + 1}.{traineeName}
-            </div>
+            </span>
           ))}
         </div>
       </div>
