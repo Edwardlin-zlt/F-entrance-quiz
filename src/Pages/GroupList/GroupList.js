@@ -6,7 +6,7 @@ class GroupList extends Component {
     super(props);
     this.state = {
       // TODO trainee: [],
-      groups: [['lintao'], ['haha']],
+      groups: [['asd', 'asdf'], ['asd'], ['asd'], ['asd'], ['asd'], []],
     };
   }
 
@@ -19,7 +19,7 @@ class GroupList extends Component {
           <button type="button">分组学员</button>
         </div>
         {groups.map((groupTrainee, index) => (
-          <TraineeGroupRow groupTrainee={groupTrainee} key={index} />
+          <TraineeGroupRow groupTrainee={groupTrainee} groupIndex={index} key={index} />
         ))}
       </div>
     );
